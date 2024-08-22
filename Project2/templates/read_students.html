@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+</head>
+<body>
+    {% if student %}
+        <h2>Student Details</h2>
+        <p><strong>Name:</strong> {{ student.name }}</p>
+        <p><strong>Roll Number:</strong> {{ student.roll }}</p>
+        <p><strong>City:</strong> {{ student.city }}</p>
+        <p><strong>Marks:</strong> {{ student.marks }}</p>
+    {% else %}
+        <p>{{ error }}</p>
+    {% endif %}
+</body>
+</html>
