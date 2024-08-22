@@ -45,22 +45,23 @@ def update(request):
                 student.city = request.GET.get('city')
                 student.marks = request.GET.get('marks')
                 student.save()
-                return redirect('read_student')  # Redirect after successful update
+                # return redirect('readstudent')  # Redirect after successful update
             return render(request, 'update_student.html', {'student': student})
         except Student.DoesNotExist:
             return render(request, 'update_student.html', {'error': 'Student not found'})
     return redirect('read_student')  # Redirect if not a GET reques
 
-def read_student(request):
+# delete 
+def delete(request):
     roll = request.GET.get('roll')
     if roll:
         try:
             student = Student.objects.get(roll=roll)
-            return render(request, 'update_student.html', {'student': student})
+            student.delete()
+            return redirect('read_student')
         except Student.DoesNotExist:
-            return render(request, 'update_student.html', {'error': 'Student not found'})
-    return render(request, 'update_student.html', {'error': 'No roll number provided'})
-
+            return render(request, 'delete_student.html', {'error': 'Student not found'})
+    return redirect('read_student')  # Redirect if not a GET request
 
 
 

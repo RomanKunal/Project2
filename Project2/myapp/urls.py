@@ -9,4 +9,7 @@ urlpatterns = [
     path('read/', views.read),
     path('read_students/', views.read_student),
     path('update/', views.update, name='update'),
+    # path('reads/',views.readstudent, name='read_student'),
+     path('delete/', views.delete, name='delete_student'),
+    path('read/', views.read_student, name='read_student'),
 ]
